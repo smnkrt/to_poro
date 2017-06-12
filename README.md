@@ -13,15 +13,13 @@ gem 'to_poro'
 ```
 
 and include `ToPoro` module into `ActiveRecord::Relation` class.
-One way of doing it is by adding a `config/to_poro_initializer.rb` file with:
+One way of doing it is by adding a `config/to_poro_initializer.rb`:
 
 ```ruby
 class ActiveRecord::Relation
   include ToPoro
 end
 ```
-
-in it.
 
 ## Usage
 
@@ -52,11 +50,6 @@ For example when fetching `Event` data and only `id` and `price` is needed:
  #<struct  id=2, date=Wed, 08 Jun 2016>
  ]
  ```
-
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/to_poro. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
