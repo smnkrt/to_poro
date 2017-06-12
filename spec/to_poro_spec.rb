@@ -1,11 +1,22 @@
 require "spec_helper"
 
 RSpec.describe ToPoro do
-  it "has a version number" do
-    expect(ToPoro::VERSION).not_to be nil
+  class DummyClass
+    extend ToPoro
+
+    def self.pluck(*_args)
+      [[1, "Abc"]]
+    end
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  describe "#to_poro" do
+    subject { DummyClass.to_poro(:id, :text) }
+
+    it "returns requested data as an Array of Structs" do
+      expect(subject).to be_a(Array)
+      expect(subject.first).to be_a(Struct)
+      expect(subject.first.id).to eq(1)
+      expect(subject.first.text).to eq('Abc')
+    end
   end
 end
