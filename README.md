@@ -44,7 +44,7 @@ For example when fetching `Event` data and only `id` and `price` is needed:
  ```
 
 ```ruby
- Event.where(deleted: false).limit.(2).to_poro(:id, :date)
+ Event.where(deleted: false).limit(2).to_poro(:id, :date)
  => [
  #<struct  id=1, date=Tue, 07 Jun 2016>,
  #<struct  id=2, date=Wed, 08 Jun 2016>
